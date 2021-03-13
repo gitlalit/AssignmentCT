@@ -44,25 +44,29 @@
 		s.parentNode.insertBefore(wzrk, s);
 		})();
 		function oul(){
+		document.getElementById("logbtn").innerHTML = "Logged In";
+		document.getElementById("logbtn").style.color = "blue";
 		console.log("Function executed")
 		clevertap.onUserLogin.push({
 		"Site": {
 		"Name": document.getElementById("name").value,          // use the Name variable
 		"Email": document.getElementById("email").value,         // Email address of the user
-		"Phone": document.getElementById("phone").value,           // Phone (with the country code)
+		"Phone": "+91" + document.getElementById("phone").value,           // Phone (with the country code)
 		"DOB": new Date()                 // Date of Birth.
 		// Date object
 		}})
-		//console.log(clevertap.onUserLogin[0])
+
 		console.log("Function Completed")
 		};
 		function pp() {
+		document.getElementById("prop").innerHTML = "Profile Pushed";
+		document.getElementById("prop").style.color = "blue";
 		console.log("Function Profile Push Entered")
 		clevertap.profile.push({
 		"Site": {
 		"Name": document.getElementById("name").value,            // use the Name variable
 		"Email": document.getElementById("email").value,         // Email address of the user
-		"Phone": document.getElementById("phone").value,           // Phone (with the country code
+		"Phone": "+91" + document.getElementById("phone").value,           // Phone (with the country code
 		"DOB": new Date()                 // Date of Birth.
 		//Date object
 		}
@@ -101,7 +105,7 @@
 					</tr>
 					<tr>
 						<td align="right">Enter Phone Number :</td>
-						<td><input type="text" placeholder="Enter Phone Number here" id="phone" class="tb" /></td>
+						<td><input type="text" placeholder="Enter 10 digit phone number" id="phone" class="tb" /></td>
 					</tr>
 					<tr>
 						<td align="right">Enter Date of Birth :</td>
@@ -110,8 +114,9 @@
 					<tr>
 						<td></td>
 						<td>
-							<button type="button" value="Login" onclick="oul()" class="btn">Login</button>
-						<button type="button" value="Profile Push" class="btn" onclick="pp()" >Profile Push</button></td>
+							<button id="logbtn" type="button" value="Login" onclick="oul()" class="btn" >Login</button>
+
+						<button id="prop" type="button" value="Profile Push" class="btn" onclick="pp()" >Profile Push</button></td>
 					</tr>
 					<tr>
 						<td></td>
