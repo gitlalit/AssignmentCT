@@ -43,7 +43,7 @@
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(wzrk, s);
 		})();
-		function oul(){
+		function onuser_login(){
 		document.getElementById("logbtn").innerHTML = "Logged In";
 		document.getElementById("logbtn").style.color = "blue";
 		console.log("Function executed")
@@ -53,12 +53,15 @@
 		"Email": document.getElementById("email").value,         // Email address of the user
 		"Phone": "+91" + document.getElementById("phone").value,           // Phone (with the country code)
 		"DOB": new Date()                 // Date of Birth.
-		// Date object
+		"MSG-email": true,                // Disable email notifications
+   		"MSG-push": true,                  // Enable push notifications
+  		"MSG-sms": true,                   // Enable sms notifications
+   		"MSG-whatsapp": true,  // Date object
 		}})
 
 		console.log("Function Completed")
 		};
-		function pp() {
+		function profile_push() {
 		document.getElementById("prop").innerHTML = "Profile Pushed";
 		document.getElementById("prop").style.color = "blue";
 		console.log("Function Profile Push Entered")
@@ -73,7 +76,7 @@
 		}),
 		console.log("Function Profile Push Exit")};
 		
-		function np(){
+		function notification_push(){
 		console.log("Function Notification Push Entered")
 		clevertap.notifications.push({
 		"titleText":'Would you like to receive Push Notifications?',
@@ -84,6 +87,19 @@
 		"okButtonColor":'#f28046'})
 		console.log("Function Notification Push Exit")
 		};
+	
+		function product_viewed{
+		console.log("Product clicked for more information")
+		clevertap.event.push("Product Viewed");
+		};
+			
+		function product_charged(){
+		console.log("Product Purchased")
+		clevertap.event.push("Product Viewed", {
+  		"Product name":"Casio Chronograph Watch",
+  		"Category":"Mens Accessories",
+  		"Price":59.99,
+		})};
 		</script>
 	</head>
 	<body>
@@ -114,14 +130,14 @@
 					<tr>
 						<td></td>
 						<td>
-							<button id="logbtn" type="button" value="Login" onclick="oul()" class="btn" >Login</button>
+							<button id="logbtn" type="button" value="Login" onclick="onuser_login()" class="btn" >Login</button>
 
-						<button id="prop" type="button" value="Profile Push" class="btn" onclick="pp()" >Profile Push</button></td>
+						<button id="prop" type="button" value="Profile Push" class="btn" onclick="profile_push()" >Profile Push</button></td>
 					</tr>
 					<tr>
 						<td></td>
 						<td>
-						<button type="button" value="Ask for Push" class="btn" onclick="np()" >Ask for Push</button>
+						<button type="button" value="Ask for Push" class="btn" onclick="notification_push()" >Ask for Push</button>
 							<button id="logbtn" type="button" value="" onclick="" class="btn" >Button</button></td>
 
 						
@@ -130,9 +146,9 @@
 			</div>
 			<div>
 				<a href= "#">
-					<img src="/watch.jpeg" alt="product" justify-content=center style="width: 300px; height: auto; display: flex; float: left;">
+					<img src="/watch.jpeg" alt="product" onclick="product_viewed()" justify-content=center style="width: 300px; height: auto; display: flex; float: left;">
 				</a>
-				<button id="logbtn" type="button" value="" onclick="" class="btn" style="float: left; margin-top: 10%;">Buy Now</button></td>
+				<button id="logbtn" type="button" value="" onclick="product_charged()" class="btn" style="float: left; margin-top: 10%; margin-left: 20px;">Buy Now</button></td>
 
 			</div>
 		</div>
