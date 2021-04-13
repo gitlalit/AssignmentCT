@@ -92,12 +92,12 @@
 		clevertap.event.push("Product Viewed");
 		};
 			
-		function product_charged(){
+		function product_charged(pro_name,pro_category,pro_price){
 		console.log("Product Purchased")
 		clevertap.event.push("Product Purchased", {
-  		"Product name":"Casio Chronograph Watch",
-  		"Category":"Mens Accessories",
-  		"Price":59.99,
+  		"Product name": pro_name,
+  		"Category": pro_category,
+  		"Price": pro_price,
 		})};
 		</script>
 	</head>
@@ -144,10 +144,17 @@
 				</table>
 			</div>
 			<div>
-				<a href= "#">
-					<img src="/watch.jpeg" alt="product" onclick="product_viewed()" justify-content=center style="width: 300px; height: auto; display: flex; float: left;">
+				<a href= "product_1">
+					<img src="/fast.jpeg" alt="product" onclick="product_viewed()" justify-content=center style="width: 300px; height: auto; display: flex; float: left;">
 				</a>
-				<button id="logbtn" type="button" value="" onclick="product_charged()" class="btn" style="float: left; margin-top: 10%; margin-left: 20px;">Buy Now</button></td>
+				<button id="logbtn" type="button" value="" onclick="product_charged("Fastrack watch", "Mens Accessories", 2000)" class="btn" style="float: left; margin-top: 10%; margin-left: 20px;">Buy Now</button></td>
+
+			</div>
+			<div>
+				<a href= "product_2">
+					<img src="/titan.jpeg" alt="product" onclick="product_viewed()" justify-content=center style="width: 300px; height: auto; display: flex; float: left;">
+				</a>
+				<button id="logbtn" type="button" value="" onclick="product_charged("Titan watch", "Mens Accessories", 4000)" class="btn" style="float: left; margin-top: 10%; margin-left: 20px;">Buy Now</button></td>
 
 			</div>
 		</div>
