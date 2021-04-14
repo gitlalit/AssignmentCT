@@ -102,21 +102,14 @@
 		});
 		};
 			
-		function product_charged_fast(){
+		function product_charged(){
 		console.log("Product Purchased")
 		clevertap.event.push("Product Purchased", {
-  		"Product name": "Fastrack watch",
-  		"Category": "Mens Accessories",
-  		"Price": 2000,
+  		"Product name": arguments[0],
+  		"Category": arguments[1],
+  		"Price": arguments[2],
 		})};
-			
-		function product_charged_titan(){
-		console.log("Product Purchased")
-		clevertap.event.push("Product Purchased", {
-  		"Product name": "Titan watch",
-  		"Category": "Mens Accessories",
-  		"Price": 4000,
-		})};
+		
 		</script>
 	</head>
 	<body>
@@ -172,14 +165,14 @@
 				<a href= "product_1">
 					<img src="/fast.jpeg" alt="product" onclick="product_viewed()" justify-content=center style="width: 150px; height: 220px; display: flex; float: left; margin-left: 50px;">
 				</a>
-				<button id="logbtn" type="button" value="" onclick="product_charged_fast()" class="btn" style="float: left; margin-top: 10%; margin-left: 20px; margin-right: 30px;">Buy Now</button>
+				<button id="logbtn" type="button" value="" onclick="product_charged('Fastrack Watch', 'Mens Accessories',2000)" class="btn" style="float: left; margin-top: 10%; margin-left: 20px; margin-right: 30px;">Buy Now</button>
 				<button id="logbtn" type="button" value="" onclick="product_addtocart('Fastrack watch', 2000)" class="btn" style="float: left; margin-top: 10%; margin-left: 20px; margin-right: 30px;">Add to Cart</button>
 			</div>
 			<div style="margin-left:auto; margin-right:auto; margin-top:50px; width: 700px; height: 220px;">		
 				<a href= "product_2">
 					<img src="/titan.jpeg" alt="product" onclick="product_viewed()" justify-content=center style="width: 150px; height: 220px; display: flex; float: left;margin-left: 50px;">
 				</a>
-				<button id="logbtn" type="button" value="" onclick="product_charged_titan()" class="btn" style="float: left; margin-top: 10%; margin-left: 20px; margin-right: 30px;">Buy Now</button></td>
+				<button id="logbtn" type="button" value="" onclick="product_charged('Titan Watch', 'Mens Accessories', 4000)" class="btn" style="float: left; margin-top: 10%; margin-left: 20px; margin-right: 30px;">Buy Now</button></td>
 				<button id="logbtn" type="button" value="" onclick="product_addtocart('Titan watch',4000)" class="btn" style="float: left; margin-top: 10%; margin-left: 20px; margin-right: 30px;">Add to Cart</button>
 			
 			</div>
