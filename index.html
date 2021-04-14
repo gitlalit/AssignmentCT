@@ -7,7 +7,7 @@
 		{
 		margin:0px;
 		background-color:#24f2ad;
-		color:##384a20;
+		color:#384a20;
 		font-family:Arial, Helvetica, sans-serif;
 		}
 		#main{width:600px; height:auto; overflow:hidden; padding-bottom:20px; margin-left:auto; margin-right:auto;
@@ -50,7 +50,8 @@
 		clevertap.onUserLogin.push({
 		"Site": {
 		"Name": document.getElementById("name").value,          // use the Name variable
-		"Email": document.getElementById("email").value,         // Email address of the user
+		"Email": document.getElementById("email").value,  // Email address of the user
+		"Brand": document.getElementById("brand").value,        
 		"Phone": "+91" + document.getElementById("phone").value,           // Phone (with the country code)
 		"DOB": new Date(),                 // Date of Birth.
 		"MSG-email": true,                // Disable email notifications
@@ -67,7 +68,8 @@
 		clevertap.profile.push({
 		"Site": {
 		"Name": document.getElementById("name").value,            // use the Name variable
-		"Email": document.getElementById("email").value,         // Email address of the user
+		"Email": document.getElementById("email").value,			 // Email address of the user
+		"Brand": document.getElementById("brand").value,        
 		"Phone": "+91" + document.getElementById("phone").value,           // Phone (with the country code
 		"DOB": new Date()                 // Date of Birth.
 		//Date object
@@ -90,6 +92,14 @@
 		function product_viewed(){
 		console.log("Product clicked for more information")
 		clevertap.event.push("Product Viewed");
+		};
+
+		function product_addtocart(){
+		console.log("Product add to cart")
+		clevertap.event.push("Product added to cart",{
+			"Product Name" : arguments[0],
+			"Price": arguments[1]
+		});
 		};
 			
 		function product_charged_fast(){
@@ -127,6 +137,10 @@
 						<td><input type="text" placeholder="Enter Email ID here" id="email" class="tb" /></td>
 					</tr>
 					<tr>
+						<td align="right">Enter Favourite Brand :</td>
+						<td><input type="text" placeholder="Enter Brand here" id="brand" class="tb" /></td>
+					</tr>
+					<tr>
 						<td align="right">Enter Phone Number :</td>
 						<td><input type="text" placeholder="Enter 10 digit phone number" id="phone" class="tb" /></td>
 					</tr>
@@ -153,17 +167,24 @@
 			</div>
 
 		</div>
-		<div style="margin-left:auto; margin-right:auto; margin-top:50px; width: 800px;">
-			<a href= "product_1">
-				<img src="/fast.jpeg" alt="product" onclick="product_viewed()" justify-content=center style="width: 150px; height: 220px; display: flex; float:left; margin-left: 50px;">
-			</a>
-			<button id="logbtn" type="button" value="" onclick="product_charged_fast()" class="btn" style="float: left; margin-top: 10%; margin-left: 20px; margin-right: 30px;">Buy Now</button></td>
-
-			<a href= "product_2">
-				<img src="/titan.jpeg" alt="product" onclick="product_viewed()" justify-content=center style="width: 150px; height: 220px; display: flex; float:left;">
-			</a>
-			<button id="logbtn" type="button" value="" onclick="product_charged_titan()" class="btn" style="float: left; margin-top: 10%; margin-left: 20px;">Buy Now</button></td>
-
+		<div>
+			<div style="margin-left:auto; margin-right:auto; margin-top:50px; width: 700px; height: 220px;">
+				<a href= "product_1">
+					<img src="/fast.jpeg" alt="product" onclick="product_viewed()" justify-content=center style="width: 150px; height: 220px; display: flex; float: left; margin-left: 50px;">
+				</a>
+				<button id="logbtn" type="button" value="" onclick="product_charged_fast()" class="btn" style="float: left; margin-top: 10%; margin-left: 20px; margin-right: 30px;">Buy Now</button>
+				<button id="logbtn" type="button" value="" onclick="product_addtocart('Fastrack watch', 2000)" class="btn" style="float: left; margin-top: 10%; margin-left: 20px; margin-right: 30px;">Add to Cart</button>
+			</div>
+			<div style="margin-left:auto; margin-right:auto; margin-top:50px; width: 700px; height: 220px;">		
+				<a href= "product_2">
+					<img src="/titan.jpeg" alt="product" onclick="product_viewed()" justify-content=center style="width: 150px; height: 220px; display: flex; float: left;margin-left: 50px;">
+				</a>
+				<button id="logbtn" type="button" value="" onclick="product_charged_titan()" class="btn" style="float: left; margin-top: 10%; margin-left: 20px; margin-right: 30px;">Buy Now</button></td>
+				<button id="logbtn" type="button" value="" onclick="product_addtocart('Titan watch',4000)" class="btn" style="float: left; margin-top: 10%; margin-left: 20px; margin-right: 30px;">Add to Cart</button>
+			
+			</div>
+			
 		</div>
+		
 	</body>
 </html>
